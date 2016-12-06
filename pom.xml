@@ -2,27 +2,29 @@
 <!-- Copyright (c) 2015 Cisco Systems, Inc. and others. All rights reserved.
   This program and the accompanying materials are made available under the
   terms of the Eclipse Public License v1.0 which accompanies this distribution,
-  and is available at http://www.eclipse.org/legal/epl-v10.html --><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+  and is available at http://www.eclipse.org/legal/epl-v10.html -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-  <parent>
-    <groupId>org.opendaylight.odlparent</groupId>
-    <artifactId>odlparent-lite</artifactId>
-    <version>1.8.0-SNAPSHOT</version>
-    <relativePath/>
-  </parent>
+    <parent>
+        <groupId>org.opendaylight.odlparent</groupId>
+        <artifactId>odlparent-lite</artifactId>
+        <version>1.8.0-SNAPSHOT</version>
+        <relativePath/>
+    </parent>
 
-  <groupId>org.opendaylight.dluxapps</groupId>
-  <artifactId>dluxapps.project</artifactId>
-  <version>0.5.0-SNAPSHOT</version>
-  <packaging>pom</packaging>
-  <name>dluxapps</name> <!-- Used by Sonar to set project name -->
+    <groupId>org.opendaylight.dluxapps</groupId>
+    <artifactId>dluxapps-aggregator</artifactId>
+    <version>0.5.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>dluxapps</name> <!-- Used by Sonar to set project name -->
 
-  <prerequisites>
-    <maven>3.0</maven>
-  </prerequisites>
+    <prerequisites>
+        <maven>3.0</maven>
+    </prerequisites>
 
-  <!--<properties>-->
+    <!--<properties>-->
     <!--<commons.opendaylight.version>1.8.0-SNAPSHOT</commons.opendaylight.version>-->
     <!--<dluxapps.node.version>0.5.0-SNAPSHOT</dluxapps.node.version>-->
     <!--<loader.resources.version>0.5.0-SNAPSHOT</loader.resources.version>-->
@@ -41,18 +43,19 @@
     <!--&lt;!&ndash;<apache.felix.osgi.compendium.version>1.4.0</apache.felix.osgi.compendium.version>&ndash;&gt;-->
     <!--<javax.servlet-api.version>3.0.1</javax.servlet-api.version>-->
     <!--<karaf.empty.version>1.8.0-SNAPSHOT</karaf.empty.version>-->
-  <!--</properties>-->
+    <!--</properties>-->
 
-  <modules>
-    <module>apps</module>
-    <module>archetype</module>
-    <module>features</module>
-  </modules>
+    <modules>
+        <module>apps</module>
+        <module>archetype</module>
+        <module>features</module>
+        <module>libraries</module>
+    </modules>
 
-  <scm>
-    <connection>scm:git:ssh://git.opendaylight.org:29418/dluxapps.git</connection>
-    <developerConnection>scm:git:ssh://git.opendaylight.org:29418/dluxapps.git</developerConnection>
-    <tag>HEAD</tag>
-    <url>https://wiki.opendaylight.org/view/OpenDaylight_dlux:Main</url>
-  </scm>
+    <scm>
+        <connection>scm:git:ssh://git.opendaylight.org:29418/dluxapps.git</connection>
+        <developerConnection>scm:git:ssh://git.opendaylight.org:29418/dluxapps.git</developerConnection>
+        <tag>HEAD</tag>
+        <url>https://wiki.opendaylight.org/view/OpenDaylight_dlux:Main</url>
+    </scm>
 </project>
