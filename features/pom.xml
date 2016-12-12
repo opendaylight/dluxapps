@@ -51,6 +51,21 @@
         </dependency>
         <dependency>
             <groupId>org.opendaylight.dluxapps</groupId>
+            <artifactId>topology-bundle</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.opendaylight.dluxapps</groupId>
+            <artifactId>yangman-bundle</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.opendaylight.dluxapps</groupId>
+            <artifactId>yangvisualizer-bundle</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.opendaylight.dluxapps</groupId>
             <artifactId>yangui-bundle</artifactId>
             <version>${project.version}</version>
         </dependency>

@@ -6,15 +6,22 @@
 
     <repository>mvn:org.opendaylight.dlux/features-dlux/{{VERSION}}/xml/features</repository>
     <repository>mvn:org.opendaylight.netconf/features-restconf/{{VERSION}}/xml/features</repository>
-    <feature name='odl-dluxapps-all' version='${project.version}' description="Opendaylight DluxApps all features">
+    <feature name='odl-dluxapps-applications' version='${project.version}' description="Opendaylight DluxApps all applications">
         <feature>odl-dluxapps-node</feature>
+        <feature>odl-dluxapps-topology</feature>
+        <feature>odl-dluxapps-yangman</feature>
         <feature>odl-dluxapps-yangui</feature>
-        <!--<feature>odl-dlux-yangvisualizer</feature>-->
+        <feature>odl-dluxapps-yangvisualizer</feature>
     </feature>
 
     <feature name="odl-dluxapps-node" version='${project.version}' description="Enable nodes in Opendaylight dlux">
         <feature version="${dlux.version}">odl-dlux-core</feature>
         <bundle>mvn:org.opendaylight.dluxapps/node-bundle/{{VERSION}}</bundle>
+    </feature>
+
+    <feature name="odl-dluxapps-topology" version='${project.version}' description="Enable nodes in Opendaylight dlux">
+        <feature version="${dlux.version}">odl-dlux-core</feature>
+        <bundle>mvn:org.opendaylight.dluxapps/topology-bundle/{{VERSION}}</bundle>
     </feature>
 
     <feature name="odl-dluxapps-yangui" version='${project.version}' description="Enable Yang UI in Opendaylight dlux">
@@ -25,19 +32,24 @@
         <bundle>mvn:org.opendaylight.dluxapps/sigmatopology-bundle/{{VERSION}}</bundle>
     </feature>
 
-    <!--<feature name="odl-dlux-yangman" version='${project.version}' description="Enable Yangman in Opendaylight dlux">-->
-        <!--<feature>odl-dlux-core</feature>-->
+    <feature name="odl-dluxapps-yangman" version='${project.version}' description="Enable Yangman in Opendaylight dlux">
+        <feature version="${dlux.version}">odl-dlux-core</feature>
         <!--<feature version="${restconf.version}">odl-mdsal-apidocs</feature>-->
-        <!--<bundle>mvn:org.opendaylight.dlux/dlux.yangman/{{VERSION}}</bundle>-->
-        <!--<bundle>mvn:org.opendaylight.dlux/dlux.common.yangutils/{{VERSION}}</bundle>-->
-        <!--<bundle>mvn:org.opendaylight.dlux/dlux.common.sigmatopology/{{VERSION}}</bundle>-->
-    <!--</feature>-->
+        <bundle>mvn:org.opendaylight.dluxapps/yangman-bundle/{{VERSION}}</bundle>
+        <bundle>mvn:org.opendaylight.dluxapps/yangutils-bundle/{{VERSION}}</bundle>
+        <!--<bundle>mvn:org.opendaylight.dluxapps/sigmatopology-bundle/{{VERSION}}</bundle>-->
+    </feature>
 
-	<!--<feature name="odl-dlux-yangvisualizer" version='${project.version}' description="Enable Yang visualizer in Opendaylight dlux">-->
-        <!--<feature>odl-dlux-core</feature>-->
-        <!--<bundle>mvn:org.opendaylight.dlux/dlux.yangvisualizer/{{VERSION}}</bundle>-->
-        <!--<bundle>mvn:org.opendaylight.dlux/dlux.common.yangutils/{{VERSION}}</bundle>-->
-		<!--<bundle>mvn:org.opendaylight.dlux/dlux.common.sigmatopology/{{VERSION}}</bundle>-->
-    <!--</feature>-->
+	<feature name="odl-dluxapps-yangvisualizer" version='${project.version}' description="Enable Yang visualizer in Opendaylight dlux">
+        <feature>odl-dlux-core</feature>
+        <bundle>mvn:org.opendaylight.dluxapps/yangvisualizer-bundle/{{VERSION}}</bundle>
+        <bundle>mvn:org.opendaylight.dluxapps/yangutils-bundle/{{VERSION}}</bundle>
+		<bundle>mvn:org.opendaylight.dluxapps/sigmatopology-bundle/{{VERSION}}</bundle>
+    </feature>
+
+    <feature name="odl-dluxapps-yangutils" version='${project.version}' description="Loads Yangutils library in Opendaylight dlux">
+        <feature version="${dlux.version}">odl-dlux-core</feature>
+        <bundle>mvn:org.opendaylight.dluxapps/yangutils-bundle/{{VERSION}}</bundle>
+    </feature>
 
 </features>

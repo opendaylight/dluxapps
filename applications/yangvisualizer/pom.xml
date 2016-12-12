@@ -8,28 +8,28 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
+
   <parent>
     <groupId>org.opendaylight.dluxapps</groupId>
-    <artifactId>dluxapps-aggregator</artifactId>
+    <artifactId>dluxapps-applications</artifactId>
     <version>0.5.0-SNAPSHOT</version>
     <relativePath>../</relativePath>
   </parent>
 
   <groupId>org.opendaylight.dluxapps</groupId>
-  <artifactId>dluxapps-applications</artifactId>
+  <artifactId>yangvisualizer</artifactId>
+  <name>yangvisualizer</name>
+  <description>Yangvisualizer application</description>
   <version>0.5.0-SNAPSHOT</version>
-  <description>Applications</description>
   <packaging>pom</packaging>
 
   <prerequisites>
     <maven>3.0</maven>
   </prerequisites>
+
   <modules>
-    <module>node</module>
-    <module>topology</module>
-    <module>yangman</module>
-    <module>yangvisualizer</module>
-    <module>yangui</module>
+    <module>yangvisualizer-module</module>
+    <module>yangvisualizer-bundle</module>
   </modules>
 
 </project>
