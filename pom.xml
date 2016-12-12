@@ -24,32 +24,11 @@
         <maven>3.0</maven>
     </prerequisites>
 
-    <!--<properties>-->
-    <!--<commons.opendaylight.version>1.8.0-SNAPSHOT</commons.opendaylight.version>-->
-    <!--<dluxapps.node.version>0.5.0-SNAPSHOT</dluxapps.node.version>-->
-    <!--<loader.resources.version>0.5.0-SNAPSHOT</loader.resources.version>-->
-    <!--<container.resources.version>0.5.0-SNAPSHOT</container.resources.version>-->
-    <!--<restconf.version>1.5.0-SNAPSHOT</restconf.version>-->
-    <!--<l2switch.version>0.5.0-SNAPSHOT</l2switch.version>-->
-    <!--<mdsal.version>1.5.0-SNAPSHOT</mdsal.version>-->
-    <!--<branding.version>1.4.0-SNAPSHOT</branding.version>-->
-    <!--<karaf.resources.version>1.8.0-SNAPSHOT</karaf.resources.version>-->
-    <!--<feature.l2switch.version>0.5.0-SNAPSHOT</feature.l2switch.version>-->
-    <!--<feature.aaa.version>0.5.0-SNAPSHOT</feature.aaa.version>-->
-    <!--<feature.openflowplugin.version>0.4.0-SNAPSHOT</feature.openflowplugin.version>-->
-
-    <!--<feature.mdsal.version>1.5.0-SNAPSHOT</feature.mdsal.version>-->
-    <!--<feature.dlux.version>0.5.0-SNAPSHOT</feature.dlux.version>-->
-    <!--&lt;!&ndash;<apache.felix.osgi.compendium.version>1.4.0</apache.felix.osgi.compendium.version>&ndash;&gt;-->
-    <!--<javax.servlet-api.version>3.0.1</javax.servlet-api.version>-->
-    <!--<karaf.empty.version>1.8.0-SNAPSHOT</karaf.empty.version>-->
-    <!--</properties>-->
-
     <modules>
-        <module>apps</module>
+        <module>applications</module>
+        <module>libraries</module>
         <module>archetype</module>
         <module>features</module>
-        <module>libraries</module>
     </modules>
 
     <scm>

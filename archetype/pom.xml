@@ -10,7 +10,7 @@
     </parent>
 
     <groupId>org.opendaylight.dluxapps</groupId>
-    <artifactId>dluxapps-app</artifactId>
+    <artifactId>dluxapps-application-archetype</artifactId>
     <packaging>maven-archetype</packaging>
     <name>archetype-dluxapps-app</name>
 
