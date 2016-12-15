@@ -1,0 +1,44 @@
+{
+  "name": "odl-dluxapps-yangman",
+  "version": "0.1.0",
+  "description": "Opendaylight Yangman",
+  "main": "main.js",
+  "devDependencies": {
+    "gulp-bower": "0.0.13"
+  },
+  "dependencies": {
+    "angular-animate": "~1.4.12",
+    "angular-aria": "~1.4.12",
+    "angular-bind-notifier": "^1.1.7",
+    "angular-bootstrap-colorpicker": "~3.0.25",
+    "angular-chart.js": "1.0.1",
+    "angular-material": "1.0.5",
+    "angular-material-data-table": "~0.9.11",
+    "angular-messages": "~1.4.0",
+    "bootstrap-material-design-icons": "2.2.0",
+    "del": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-connect": "^5.0.0",
+    "gulp-debug": "^3.0.0",
+    "gulp-install": "^0.6.0",
+    "gulp-less": "^3.1.0",
+    "gulp-open": "^2.0.0",
+    "gulp-replace-task": "^0.11.0",
+    "gulp-util": "^3.0.7",
+    "roboto-fontface": "~0.4.3",
+    "run-sequence": "^1.1.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.opendaylight.org/gerrit/dluxapps"
+  },
+  "author": "Daniel Malachovsky",
+  "license": "EPL",
+  "keywords": [
+    "odl",
+    "yangman",
+    "angular",
+    "yang"
+  ]
+}

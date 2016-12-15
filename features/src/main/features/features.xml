@@ -34,10 +34,8 @@
 
     <feature name="odl-dluxapps-yangman" version='${project.version}' description="Enable Yangman in Opendaylight dlux">
         <feature version="${dlux.version}">odl-dlux-core</feature>
-        <!--<feature version="${restconf.version}">odl-mdsal-apidocs</feature>-->
         <bundle>mvn:org.opendaylight.dluxapps/yangman-bundle/{{VERSION}}</bundle>
         <bundle>mvn:org.opendaylight.dluxapps/yangutils-bundle/{{VERSION}}</bundle>
-        <!--<bundle>mvn:org.opendaylight.dluxapps/sigmatopology-bundle/{{VERSION}}</bundle>-->
     </feature>
 
 	<feature name="odl-dluxapps-yangvisualizer" version='${project.version}' description="Enable Yang visualizer in Opendaylight dlux">

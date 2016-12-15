@@ -50,6 +50,7 @@
                             <outputDirectory>${project.build.directory}/generated-resources</outputDirectory>
                             <groupId>org.opendaylight.dluxapps</groupId>
                             <includeArtifactIds>yangman-module</includeArtifactIds>
+                            <includes>yangman/build\/**</includes>
                             <excludes>META-INF\/**</excludes>
                             <excludeTransitive>true</excludeTransitive>
                             <ignorePermissions>false</ignorePermissions>

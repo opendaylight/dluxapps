@@ -1,2 +1,5 @@
 target/
 .idea
+**/build
+**/node
+**/node_modules
