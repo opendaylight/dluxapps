@@ -50,6 +50,7 @@
                             <outputDirectory>${project.build.directory}/generated-resources</outputDirectory>
                             <groupId>org.opendaylight.dluxapps</groupId>
                             <includeArtifactIds>topology-module</includeArtifactIds>
+                            <includes>topology/build\/**</includes>
                             <excludes>META-INF\/**</excludes>
                             <excludeTransitive>true</excludeTransitive>
                             <ignorePermissions>false</ignorePermissions>

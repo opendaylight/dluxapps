@@ -4,12 +4,12 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.opendaylight.dluxapps</groupId>
-        <artifactId>node</artifactId>
+        <artifactId>nodes</artifactId>
         <version>0.5.0-SNAPSHOT</version>
     </parent>
 
     <groupId>org.opendaylight.dluxapps</groupId>
-    <artifactId>node-bundle</artifactId>
+    <artifactId>nodes-bundle</artifactId>
     <packaging>bundle</packaging>
 
     <dependencies>
@@ -20,7 +20,7 @@
         </dependency>
         <dependency>
             <groupId>org.opendaylight.dluxapps</groupId>
-            <artifactId>node-module</artifactId>
+            <artifactId>nodes-module</artifactId>
             <version>${project.version}</version>
             <scope>provided</scope>
         </dependency>
@@ -49,7 +49,8 @@
                         <configuration>
                             <outputDirectory>${project.build.directory}/generated-resources</outputDirectory>
                             <groupId>org.opendaylight.dluxapps</groupId>
-                            <includeArtifactIds>node-module</includeArtifactIds>
+                            <includeArtifactIds>nodes-module</includeArtifactIds>
+                            <includes>nodes/build\/**</includes>
                             <excludes>META-INF\/**</excludes>
                             <excludeTransitive>true</excludeTransitive>
                             <ignorePermissions>false</ignorePermissions>

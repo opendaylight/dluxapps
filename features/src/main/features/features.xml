@@ -7,16 +7,16 @@
     <repository>mvn:org.opendaylight.dlux/features-dlux/{{VERSION}}/xml/features</repository>
     <repository>mvn:org.opendaylight.netconf/features-restconf/{{VERSION}}/xml/features</repository>
     <feature name='odl-dluxapps-applications' version='${project.version}' description="Opendaylight DluxApps all applications">
-        <feature>odl-dluxapps-node</feature>
+        <feature>odl-dluxapps-nodes</feature>
         <feature>odl-dluxapps-topology</feature>
         <feature>odl-dluxapps-yangman</feature>
         <feature>odl-dluxapps-yangui</feature>
         <feature>odl-dluxapps-yangvisualizer</feature>
     </feature>
 
-    <feature name="odl-dluxapps-node" version='${project.version}' description="Enable nodes in Opendaylight dlux">
+    <feature name="odl-dluxapps-nodes" version='${project.version}' description="Enable nodes in Opendaylight dlux">
         <feature version="${dlux.version}">odl-dlux-core</feature>
-        <bundle>mvn:org.opendaylight.dluxapps/node-bundle/{{VERSION}}</bundle>
+        <bundle>mvn:org.opendaylight.dluxapps/nodes-bundle/{{VERSION}}</bundle>
     </feature>
 
     <feature name="odl-dluxapps-topology" version='${project.version}' description="Enable nodes in Opendaylight dlux">

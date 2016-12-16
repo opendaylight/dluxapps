@@ -6,8 +6,13 @@
     	<property name="loader" ref="loader"/>
     	<property name="moduleName" value="yangvisualizer"/>
     	<property name="url" value="/src/app/yangvisualizer"/>
-        <property name="directory" value="/yangvisualizer"/>
+        <property name="directory" value="/yangvisualizer/build"/>
     	<property name="requireJs" value="app/yangvisualizer/yangvisualizer.module"/>
     	<property name="angularJs" value="app.yangvisualizer"/>
+		<property name="cssDependencies">
+			<list>
+				<value>src/app/yangvisualizer/yangvisualizer.css</value>
+			</list>
+		</property>
     </bean>
 </blueprint>

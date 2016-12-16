@@ -5,10 +5,15 @@
     <bean id="bundle" init-method="initialize" destroy-method="clean" class="org.opendaylight.dlux.loader.DluxModule">
       <property name="httpService" ref="httpService"/>
       <property name="loader" ref="loader"/>
-      <property name="moduleName" value="node"/>
-      <property name="url" value="/src/app/node"/>
-      <property name="directory" value="/node"/>
-      <property name="requireJs" value="app/node/nodes.module"/>
+      <property name="moduleName" value="nodes"/>
+      <property name="url" value="/src/app/nodes"/>
+      <property name="directory" value="/nodes/build"/>
+      <property name="requireJs" value="app/nodes/nodes.module"/>
       <property name="angularJs" value="app.nodes"/>
+        <property name="cssDependencies">
+            <list>
+                <value>src/app/nodes/nodes.css</value>
+            </list>
+        </property>
     </bean>
 </blueprint>

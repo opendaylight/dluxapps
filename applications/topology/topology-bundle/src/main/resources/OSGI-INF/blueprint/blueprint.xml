@@ -7,8 +7,13 @@
       <property name="loader" ref="loader"/>
       <property name="moduleName" value="topology"/>
       <property name="url" value="/src/app/topology"/>
-      <property name="directory" value="/topology"/>
+      <property name="directory" value="/topology/build"/>
       <property name="requireJs" value="app/topology/topology.module"/>
       <property name="angularJs" value="app.topology"/>
+        <property name="cssDependencies">
+            <list>
+                <value>src/app/topology/topology.css</value>
+            </list>
+        </property>
     </bean>
 </blueprint>

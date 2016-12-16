@@ -6,8 +6,14 @@
     	<property name="loader" ref="loader"/>
     	<property name="moduleName" value="yangui"/>
     	<property name="url" value="/src/app/yangui"/>
-        <property name="directory" value="/yangui"/>
+        <property name="directory" value="/yangui/build"/>
     	<property name="requireJs" value="app/yangui/main"/>
     	<property name="angularJs" value="app.yangui"/>
+		<property name="cssDependencies">
+			<list>
+				<value>src/app/yangui/yangui.css</value>
+				<value>src/app/yangui/abn_tree.css</value>
+			</list>
+		</property>
     </bean>
 </blueprint>

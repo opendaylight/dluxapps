@@ -25,7 +25,7 @@
     <maven>3.0</maven>
   </prerequisites>
   <modules>
-    <module>node</module>
+    <module>nodes</module>
     <module>topology</module>
     <module>yangman</module>
     <module>yangvisualizer</module>

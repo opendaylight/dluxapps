@@ -41,7 +41,7 @@
         </dependency>
         <dependency>
             <groupId>org.opendaylight.dluxapps</groupId>
-            <artifactId>node-bundle</artifactId>
+            <artifactId>nodes-bundle</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
