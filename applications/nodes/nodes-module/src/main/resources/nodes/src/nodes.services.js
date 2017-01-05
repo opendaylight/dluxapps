@@ -6,7 +6,7 @@
  * and is available at http://www.eclipse.org/legal/epl-v10.html
  */
 
-define(['app/node/nodes.module'],function(node) {
+define(['app/nodes/nodes.module'],function(node) {
 
   node.factory('nodeConnectorFactory', function() {
     var factory = {};

@@ -11,7 +11,7 @@ define(['angularAMD', 'app/routingConfig', 'Restangular', 'angular-translate', '
 
   nodes.config(function($stateProvider, NavHelperProvider, $translateProvider) {
 
-    NavHelperProvider.addControllerUrl('app/node/nodes.controller');
+    NavHelperProvider.addControllerUrl('app/nodes/nodes.controller');
     NavHelperProvider.addToMenu('nodes', {
      "link" : "#/node/index",
      "active" : "main.node.*",
@@ -29,7 +29,7 @@ define(['angularAMD', 'app/routingConfig', 'Restangular', 'angular-translate', '
       abstract: true,
       views : {
         'content' : {
-          templateUrl: 'src/app/node/root.tpl.html',
+          templateUrl: 'src/app/nodes/root.tpl.html',
           controller: 'rootNodeCtrl'
         }
       }
@@ -40,7 +40,7 @@ define(['angularAMD', 'app/routingConfig', 'Restangular', 'angular-translate', '
       access: access.admin,
       views: {
         '': {
-          templateUrl: 'src/app/node/index.tpl.html',
+          templateUrl: 'src/app/nodes/index.tpl.html',
           controller: 'allNodesCtrl'
         }
       }
@@ -51,7 +51,7 @@ define(['angularAMD', 'app/routingConfig', 'Restangular', 'angular-translate', '
       access: access.admin,
       views: {
         '': {
-          templateUrl: 'src/app/node/detail.tpl.html',
+          templateUrl: 'src/app/nodes/detail.tpl.html',
           controller: 'nodeConnectorCtrl'
         }
       }
@@ -62,7 +62,7 @@ define(['angularAMD', 'app/routingConfig', 'Restangular', 'angular-translate', '
       access: access.admin,
       views: {
         '': {
-          templateUrl: 'src/app/node/flow-stat.tpl.html',
+          templateUrl: 'src/app/nodes/flow-stat.tpl.html',
           controller: 'nodeConnectorCtrl'
         }
       }
@@ -73,7 +73,7 @@ define(['angularAMD', 'app/routingConfig', 'Restangular', 'angular-translate', '
       access: access.admin,
       views: {
         '': {
-          templateUrl: 'src/app/node/port-stat.tpl.html',
+          templateUrl: 'src/app/nodes/port-stat.tpl.html',
           controller: 'nodeConnectorCtrl'
         }
       }

@@ -5,7 +5,7 @@
  * terms of the Eclipse Public License v1.0 which accompanies this distribution,
  * and is available at http://www.eclipse.org/legal/epl-v10.html
  */
-define(['app/node/nodes.module', 'app/node/nodes.controller', 'angular-ui-router', 'common/layout/layout.module'], function () {
+define(['app/nodes/nodes.module', 'app/nodes/nodes.controller', 'angular-ui-router', 'common/layout/layout.module'], function () {
     describe("Node Listing Screen", function () {
         var scope, state, nodeServiceMock, rootScope;
         beforeEach(angular.mock.module('ui.router'));
@@ -16,9 +16,9 @@ define(['app/node/nodes.module', 'app/node/nodes.controller', 'angular-ui-router
             rootScope = $rootScope;
             scope = $rootScope.$new();
             state = $state;
-            $templateCache.put('src/app/node/root.tpl.html', '');
-            $templateCache.put('src/app/node/index.tpl.html', '');
-            $templateCache.put('src/app/node/detail.tpl.html', '');
+            $templateCache.put('src/app/nodes/root.tpl.html', '');
+            $templateCache.put('src/app/nodes/index.tpl.html', '');
+            $templateCache.put('src/app/nodes/detail.tpl.html', '');
             nodeServiceMock = {
                 getAllNodes: function () {
                     // TODO: rewrite this test

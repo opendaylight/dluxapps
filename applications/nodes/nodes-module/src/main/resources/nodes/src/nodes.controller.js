@@ -6,7 +6,7 @@
  * and is available at http://www.eclipse.org/legal/epl-v10.html
  */
 
-define(['app/node/nodes.module','app/node/nodes.services'], function(node) {
+define(['app/nodes/nodes.module','app/nodes/nodes.services'], function(node) {
 
   node.controller('rootNodeCtrl', function($rootScope) {
     $rootScope['section_logo'] = 'assets/images/logo_node.gif';
