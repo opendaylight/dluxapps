@@ -15,7 +15,10 @@ define(modules, function() {
 
   yangvisualizer.register = yangvisualizer;
 
-  yangvisualizer.config(function ($stateProvider, $compileProvider, $controllerProvider, $provide, $translateProvider, $translatePartialLoaderProvider, NavHelperProvider) {
+  yangvisualizer.config(function ($stateProvider, $compileProvider, $controllerProvider, $provide, $translateProvider,
+                                  $urlRouterProvider, $translatePartialLoaderProvider, NavHelperProvider) {
+
+    $urlRouterProvider.otherwise('/yangvisualizer/index');
 
     $translatePartialLoaderProvider.addPart('app/yangvisualizer/assets/data/locale');
 

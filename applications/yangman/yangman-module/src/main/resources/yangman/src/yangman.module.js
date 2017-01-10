@@ -29,7 +29,10 @@ define([
         .config(YangManConfig)
         .constant('ymUiCodemirrorConfig', {});
 
-    function YangManConfig($stateProvider, $mdThemingProvider, $translatePartialLoaderProvider,  NavHelperProvider) {
+    function YangManConfig($stateProvider, $mdThemingProvider, $translatePartialLoaderProvider,  $urlRouterProvider,
+                           NavHelperProvider) {
+
+        $urlRouterProvider.otherwise('/yangman/index');
 
         $translatePartialLoaderProvider.addPart('app/yangman/assets/data/locale');
 

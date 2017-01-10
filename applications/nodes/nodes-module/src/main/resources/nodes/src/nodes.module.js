@@ -9,7 +9,9 @@
 define(['angularAMD', 'app/routingConfig', 'Restangular', 'angular-translate', 'angular-translate-loader-static-files', 'app/core/core.services', 'common/config/env.module'], function(ng) {
   var nodes = angular.module('app.nodes', ['app.core', 'pascalprecht.translate', 'ui.router.state', 'restangular', 'config']);
 
-  nodes.config(function($stateProvider, NavHelperProvider, $translateProvider) {
+  nodes.config(function($stateProvider, NavHelperProvider, $urlRouterProvider) {
+
+    $urlRouterProvider.otherwise('/node/index');
 
     NavHelperProvider.addControllerUrl('app/nodes/nodes.controller');
     NavHelperProvider.addToMenu('nodes', {

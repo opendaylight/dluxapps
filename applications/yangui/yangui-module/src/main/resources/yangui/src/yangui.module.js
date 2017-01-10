@@ -24,7 +24,11 @@ define(modules, function(ZC) {
 
     yangui.register = yangui;
 
-    yangui.config(function ($stateProvider, $compileProvider, $controllerProvider, $provide, $filterProvider, $translateProvider,$translatePartialLoaderProvider, NavHelperProvider, ngClipProvider) {
+    yangui.config(function ($stateProvider, $compileProvider, $controllerProvider, $provide, $filterProvider,
+                            $translateProvider, $translatePartialLoaderProvider, $urlRouterProvider,
+                            NavHelperProvider, ngClipProvider) {
+
+        $urlRouterProvider.otherwise('/yangui/index');
 
         $translatePartialLoaderProvider.addPart('app/yangui/assets/data/locale');
 
