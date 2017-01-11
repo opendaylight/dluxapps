@@ -63,6 +63,7 @@ define([
 
         main.init = init;
         main.initModuleDetailHeight = initModuleDetailHeight;
+        $scope.forceCMsRefresh = forceCMsRefresh;
         main.switchedTab = switchedTab;
         main.toggleLeftPanel = toggleLeftPanel;
         main.leftPanelShowModule = leftPanelShowModule;
@@ -128,7 +129,7 @@ define([
 
             YangmanDesignService.hideMainMenu();
             YangmanDesignService.setDraggableLeftPanel();
-            YangmanDesignService.setJsonSplitter(forceCMsRefresh);
+            YangmanDesignService.setJsonSplitter($scope.forceCMsRefresh);
 
             EventDispatcherService.registerHandler(constants.EV_FILL_PATH, fillPathIdentifiersByKey);
             EventDispatcherService.registerHandler(constants.EV_LIST_CHANGED, fillPathIdentifiersByListData);
@@ -374,8 +375,8 @@ define([
         function setJsonView(received, sent){
             main.jsonView.received = received;
             main.jsonView.sent = sent;
-            forceCMsRefresh();
-            YangmanDesignService.setJsonSplitter(forceCMsRefresh);
+            $scope.forceCMsRefresh();
+            YangmanDesignService.setJsonSplitter($scope.forceCMsRefresh);
         }
 
         /**

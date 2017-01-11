@@ -142,7 +142,7 @@
         </md-checkbox>
 
         <section layout="row" flex layout-align="center end" ng-show="requestHeader.selectedShownDataType==='req-data'">
-            <md-checkbox class="mb0" flex layout-align="center end" ng-model="main.jsonView.sent" >
+            <md-checkbox class="mb0" flex layout-align="center end" ng-model="main.jsonView.sent" ng-change="forceCMsRefresh()">
                 {{ 'YANGMAN_SHOW_SENT_DATA' | translate }}
             </md-checkbox>
             <md-checkbox class="mb0" flex layout-align="center end" ng-model="main.jsonView.received">
