@@ -7,11 +7,11 @@ define([], function (){
      * @constructor
      * @param ParsingJsonService
      */
-    function HistorySettingsModel(ParsingJsonService, HistorySettingsService) {
+    function RequestsSettingsModel(name, ParsingJsonService, RequestsSettingsService) {
 
         var self = this;
 
-        self.name = 'yangman_historySettings';
+        self.name = name;
         self.data = {
             requestsCount: 10000,
             saveReceived: true,
@@ -37,10 +37,10 @@ define([], function (){
          * Create copy of this object
          */
         function clone() {
-            var result = HistorySettingsService.createHistorySettings();
+            var result = self.name === 'yangman_historySettings' ?
+                RequestsSettingsService.createHistorySettings() :
+                RequestsSettingsService.createCollectionsSettings();
             result.setData(self.data);
-            console.debug('clone created', result);
-
             return result;
         }
 
@@ -64,6 +64,8 @@ define([], function (){
          * Saving to local storage
          */
         function saveToStorage(){
+            console.debug('saving settings', self);
+
             try {
                 localStorage.setItem(self.name, JSON.stringify(self.data));
             } catch (e) {
@@ -72,5 +74,5 @@ define([], function (){
 
     }
 
-    return HistorySettingsModel;
+    return RequestsSettingsModel;
 });

@@ -101,6 +101,7 @@
   "YANGMAN_SHOW_SENT_DATA": "Show sent data",
   "YANGMAN_SHOW_RECEIVED_DATA": "Show received data",
   "YANGMAN_HISTORY_SETTINGS": "History requests settings",
+  "YANGMAN_COLLECTIONS_SETTINGS": "Collections settings",
   "YANGMAN_HISTORY_SETTINGS_GENERAL": "General settings",
   "YANGMAN_HISTORY_SETTINGS_COUNT": "History requests buffer size",
   "YANGMAN_HISTORY_SETTINGS_SAVE_RECEIVED_DATA": "Save received data",

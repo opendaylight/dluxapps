@@ -58,15 +58,11 @@
             <div ng-switch-when="items">
                 <md-list>
                     <md-list-item ng-repeat="_ in node.listData" class="no-wrap">
-                        <!-- icon -->
-                        <md-icon md-font-set="material-icons">
-                            {{ [yangList.currentDisplayIndex, yangList.currentDisplayIndex + 1, yangList.currentDisplayIndex - 1].indexOf($index) !== -1 ? 'remove_red_eye' : ''}}
-                        </md-icon>
 
                         <!-- title -->
                         <p ng-class="{'active' : node.actElemIndex === $index}"
                            class="pointer"
-                           ng-click="node.changeActElementData($index)">
+                           ng-click="yangList.currentSelectedListItemIndex = $index;">
                             {{yangForm.getNodeName(node.localeLabel, node.label)}}&nbsp;{{node.createListName($index) || '[' + $index + ']'}}
                         </p>
 

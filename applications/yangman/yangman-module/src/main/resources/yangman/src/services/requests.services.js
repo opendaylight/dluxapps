@@ -33,12 +33,22 @@ define([
         /**
          * Clear unnecesary properties for saving to collection
          * @param request
+         * @param settingsObj collectionSettings object
+         * @return {*}
          */
-        function clearUnnecessaryProperties(request){
-            request.status = '';
-            request.responseStatus = null;
-            request.responseStatusText = null;
-            request.responseTime = null;
+        function clearUnnecessaryProperties(request, settingsObj){
+            console.debug('saving with settings', settingsObj);
+
+            if (!settingsObj.data.saveResponseData) {
+                request.status = '';
+                request.responseStatus = null;
+                request.responseStatusText = null;
+                request.responseTime = null;
+            }
+
+            if (!settingsObj.data.saveReceived) {
+                request.receivedData = null;
+            }
 
             return request;
         }

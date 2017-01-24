@@ -12,8 +12,8 @@ define([], function () {
         $scope.showListFilter = false;
         $scope.filterListHover = 0;
         yangList.constants = constants;
-        yangList.currentDisplayIndex = 1;
-        yangList.displayOffsets = [-1, 0, 1];
+        yangList.currentSelectedListItemIndex = 0;
+        yangList.listItemsData = [];
 
         // methods
         $scope.activeFilter = activeFilter;
@@ -26,39 +26,46 @@ define([], function () {
         $scope.switchFilter = switchFilter;
 
         yangList.addListElem = addListElem;
-        yangList.getListName = getListName;
+        yangList.getListItemName = getListItemName;
         yangList.init = init;
         yangList.isActionMenu = isActionMenu;
         yangList.removeListElem = removeListElem;
-        yangList.shiftDisplayNext = shiftDisplayNext;
-        yangList.shiftDisplayPrev = shiftDisplayPrev;
-        yangList.showNextButton = showNextButton;
-        yangList.showPrevButton = showPrevButton;
         yangList.toggleExpanded = toggleExpanded;
+        yangList.changeNodeListItem = changeNodeListItem;
+
+        function changeNodeListItem(i) {
+            if ($scope.node.actElemStructure){
+                $scope.node.changeActElementData(i);
+            }
+        }
+
 
         // WATCHERS
         $scope.$on(constants.EV_REFRESH_LIST_INDEX, function () {
-            yangList.currentDisplayIndex = 1;
+            yangList.currentSelectedListItemIndex = 0;
         });
 
         $scope.$on(constants.YANGMAN_DISABLE_ADDING_LIST_ELEMENT, function() {
             yangList.init();
         });
 
+
+        $scope.$watch('yangList.currentSelectedListItemIndex', changeNodeListItem);
+
+
+
         /**
          * Disable adding more then one element
          */
         function init() {
             yangList.disableAddingListElement = $scope.checkAddingListElement($scope.node);
+            yangList.listItemsData = angular.copy($scope.node.listData);
 
             if (yangList.disableAddingListElement &&
                 !$scope.node.listData.length &&
                 $scope.selectedDatastore.label === constants.DATA_STORE_CONFIG) {
 
                 yangList.addListElem();
-            }
-            if ($scope.node.listData && !$scope.node.listData.length) {
-                yangList.currentDisplayIndex = 1;
             }
 
         }
@@ -71,46 +78,35 @@ define([], function () {
             $scope.showModal = false;
             ListFilteringService.removeEmptyFilters($scope.node);
             $scope.node.addListElem();
+            yangList.listItemsData = angular.copy($scope.node.listData);
         }
 
-        // TODO :: do method description
+        /**
+         * Remove element from list and broadcast message if it was the last one
+         * @param elemIndex
+         * @param fromFilter
+         */
         function removeListElem(elemIndex, fromFilter) {
             $scope.node.removeListElem(elemIndex, fromFilter);
-            // $scope.preview();
-            yangList.currentDisplayIndex =
-                Math.max(Math.min(yangList.currentDisplayIndex, $scope.node.listData.length - 2), 1);
+
             if ($scope.node.listData.length === 0) {
                 $scope.$broadcast('hideInfoBox');
             }
+
+            yangList.listItemsData = angular.copy($scope.node.listData);
         }
 
-        // TODO :: do method description
+        /**
+         * Toggle node expanded
+         */
         function toggleExpanded() {
             $scope.node.expanded = !$scope.node.expanded;
         }
 
-        // TODO :: do method description
-        function shiftDisplayNext(typeListData) {
-            yangList.currentDisplayIndex = Math.min(yangList.currentDisplayIndex + 3, $scope.node[typeListData].length - 2);
-        }
 
-        // TODO :: do method description
-        function shiftDisplayPrev() {
-            yangList.currentDisplayIndex = Math.max(yangList.currentDisplayIndex - 3, 1);
-        }
-
-        // TODO :: do method description
-        function showPrevButton() {
-            return yangList.currentDisplayIndex > 1;
-        }
-
-        // TODO :: do method description
-        function showNextButton(typeListData) {
-            // node is selected after view is loaded
-            return $scope.node[typeListData] && yangList.currentDisplayIndex < $scope.node[typeListData].length - 2;
-        }
-
-        // TODO :: do method description
+        /**
+         * Toggle $scope.showModal and set showListFilter to false
+         */
         function showModalWin() {
             $scope.showModal = !$scope.showModal;
             if ($scope.showListFilter){
@@ -118,7 +114,10 @@ define([], function () {
             }
         }
 
-        // TODO :: do method description
+        /**
+         * Toggle showListFilter and set showModal to false and call showListFilterWin svc
+         *
+         */
         function showListFilterWin() {
             $scope.showListFilter = !$scope.showListFilter;
             if ($scope.showModal){
@@ -127,22 +126,31 @@ define([], function () {
             ListFilteringService.showListFilterWin($scope.filterRootNode,$scope.node);
         }
 
-        // TODO :: do method description
+        /**
+         * Get filter data from ListFilteringService
+         */
         function getFilterData() {
             ListFilteringService.getFilterData($scope.node);
         }
 
-        // TODO :: do method description
+        /**
+         * Switch ListFilteringService filter
+         * @param showedFilter
+         */
         function switchFilter(showedFilter) {
             ListFilteringService.switchFilter($scope.node, showedFilter);
         }
 
-        // TODO :: do method description
+        /**
+         * Create new ListFilteringService filter
+         */
         function createNewFilter() {
             ListFilteringService.createNewFilter($scope.node);
         }
 
-        // TODO :: do method description
+        /**
+         * Apply ListFilteringService filter
+         */
         function applyFilter() {
             ListFilteringService.applyFilter($scope.node);
             $scope.showListFilter = !$scope.showListFilter;
@@ -156,7 +164,12 @@ define([], function () {
             }
         }
 
-        // TODO :: do method description
+        /**
+         * Clear ListFilteringService data
+         * @param changeAct
+         * @param filterForClear
+         * @param removeFilters
+         */
         function clearFilterData(changeAct, filterForClear, removeFilters) {
             ListFilteringService.clearFilterData($scope.node, changeAct, filterForClear, removeFilters);
             if (changeAct){
@@ -166,7 +179,10 @@ define([], function () {
                 NodeWrapperService.checkKeyDuplicity($scope.node.listData, $scope.node.refKey);
         }
 
-        // TODO :: do method description
+        /**
+         * Set filter.active to 2 if it is 1, else set to 1
+         * @param filter
+         */
         function activeFilter(filter) {
             if (filter.active === 1){
                 filter.active = 2;
@@ -175,25 +191,33 @@ define([], function () {
             }
         }
 
-        // TODO :: do method description
-        function getListName(offset, config) {
-            var createdListItemName = $scope.node.createListName(yangList.currentDisplayIndex + offset);
 
-            if ( createdListItemName.length > 33 ) {
+        /**
+         * Get list item name to use it in list
+         * @param offset
+         * @param config
+         * @returns {*}
+         */
+        function getListItemName(index, config) {
+            var createdListItemName = $scope.node.createListName(index);
+
+            if (createdListItemName.length > 33 ) {
                 return {
                     name: createdListItemName.substring(0, 30) + '...',
                     tooltip: createdListItemName,
                 };
-            } else {
+            }
+            else {
                 return {
-                    name: config ? createdListItemName || '[' + (yangList.currentDisplayIndex + offset) + ']' : createdListItemName,
+                    name: config ? createdListItemName || '[' + (index) + ']' : createdListItemName,
                     tooltip: '',
                 };
             }
+
         }
 
         /**
-         * Show hide action menu
+         * Check if it is action menu opened
          * @returns {boolean|*}
          */
         function isActionMenu() {
