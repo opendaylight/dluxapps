@@ -63,7 +63,6 @@ define([
 
         main.init = init;
         main.initModuleDetailHeight = initModuleDetailHeight;
-        $scope.forceCMsRefresh = forceCMsRefresh;
         main.switchedTab = switchedTab;
         main.toggleLeftPanel = toggleLeftPanel;
         main.leftPanelShowModule = leftPanelShowModule;
@@ -73,6 +72,7 @@ define([
         $scope.buildRootRequest = buildRootRequest;
         $scope.checkAddingListElement = checkAddingListElement;
         $scope.clearCM = clearCM;
+        $scope.forceCMsRefresh = forceCMsRefresh;
         $scope.rootBroadcast = rootBroadcast;
         $scope.setApi = setApi;
         $scope.setDataStore = setDataStore;
