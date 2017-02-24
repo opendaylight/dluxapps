@@ -345,12 +345,20 @@ define([
             $scope.rootBroadcast(constants.YANGMAN_GET_CODEMIRROR_DATA_SENT, sentData);
             $scope.rootBroadcast(constants.YANGMAN_GET_CODEMIRROR_DATA_RECEIVED, receivedData);
 
-            RequestService.fillRequestByMethod(
-                historyReq, sentData, receivedData, requestHeader.selectedOperation, $scope.node,
-                requestHeader.selectedShownDataType
-            );
+            try {
+                // Try if Code Mirror send data does not contains error e.g. parameter has to be inside quotation marks
+                var reqData = angular.fromJson(sentData.reqData);
 
-            $scope.rootBroadcast(constants.YANGMAN_SAVE_REQUEST_TO_COLLECTION, { event: event, reqObj: historyReq });
+                RequestService.fillRequestByMethod(
+                    historyReq, sentData, receivedData, requestHeader.selectedOperation, $scope.node,
+                    requestHeader.selectedShownDataType
+                );
+
+                $scope.rootBroadcast(constants.YANGMAN_SAVE_REQUEST_TO_COLLECTION, { event: event, reqObj: historyReq });
+            }
+            catch (err) {
+                console.error('Error in CM Sent Data');
+            }
         }
 
         function showRequestProgress(){
@@ -554,7 +562,17 @@ define([
                         // get json data
                         var params = { reqData: null };
                         $scope.rootBroadcast(constants.YANGMAN_GET_CODEMIRROR_DATA_SENT, params);
-                        executeOperation(params.reqData ? angular.fromJson(params.reqData) : {}, cbk);
+                        try {
+                            // Try if Code Mirror send data does not contains error e.g. parameter has
+                            // to be inside quotation marks
+                            var reqData = angular.fromJson(params.reqData);
+
+                            executeOperation(params.reqData ? reqData : {}, cbk);
+                        }
+                        catch (err) {
+                            console.error('Error in CM Sent Data');
+                            finishRequestProgress();
+                        }
                     } else {
                         executeOperation({}, cbk);
                     }
