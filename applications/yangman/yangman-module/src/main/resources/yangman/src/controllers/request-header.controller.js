@@ -1,6 +1,7 @@
 define([
     'app/yangman/controllers/params-admin.controller',
     'app/yangman/services/time-tracking.services',
+    'app/yangman/services/yangman-design.services',
 ], function (ParamsAdminCtrl) {
     'use strict';
 
@@ -8,12 +9,13 @@ define([
 
     RequestHeaderCtrl.$inject = [
         '$timeout', '$mdDialog', '$mdToast', '$scope', '$rootScope', 'ENV', 'YangmanService', 'ParametersService',
-        'PathUtilsService', 'RequestsService', '$filter', 'DataBackupService', 'constants', 'TimeTrackingService'
+        'PathUtilsService', 'RequestsService', '$filter', 'DataBackupService', 'constants', 'TimeTrackingService',
+        'YangmanDesignService'
     ];
 
     function RequestHeaderCtrl($timeout, $mdDialog, $mdToast, $scope, $rootScope, ENV, YangmanService, ParametersService,
                                PathUtilsService, RequestService, $filter, DataBackupService, constants,
-                               TimeTrackingService) {
+                               TimeTrackingService, YangmanDesignService) {
         var requestHeader = this;
 
         requestHeader.allOperations = [constants.OPERATION_GET, constants.OPERATION_POST, constants.OPERATION_PUT, constants.OPERATION_DELETE];
@@ -41,6 +43,7 @@ define([
         requestHeader.showParamsAdmin = showParamsAdmin;
         requestHeader.saveRequestToCollection = saveRequestToCollection;
         requestHeader.unsetPluginFunctionality = unsetPluginFunctionality;
+        requestHeader.forceCMsRefresh = forceCMsRefresh;
 
         $scope.$on(constants.YANGMAN_CHANGE_TO_JSON, function () {
             sendRequestData($scope.buildRootRequest(), 'SENT');
@@ -613,6 +616,13 @@ define([
 
             requestHeader.selectedPlugin = null;
             requestHeader.selectedPluginsButtons = [];
+        }
+
+        /**
+        * Force refresh of all codemirror instances
+        */
+        function forceCMsRefresh() {
+            YangmanDesignService.forceCMsRefresh();
         }
 
     }

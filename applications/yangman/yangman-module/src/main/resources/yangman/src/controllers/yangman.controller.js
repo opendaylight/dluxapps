@@ -72,7 +72,6 @@ define([
         $scope.buildRootRequest = buildRootRequest;
         $scope.checkAddingListElement = checkAddingListElement;
         $scope.clearCM = clearCM;
-        $scope.forceCMsRefresh = forceCMsRefresh;
         $scope.rootBroadcast = rootBroadcast;
         $scope.setApi = setApi;
         $scope.setDataStore = setDataStore;
@@ -129,7 +128,7 @@ define([
 
             YangmanDesignService.hideMainMenu();
             YangmanDesignService.setDraggableLeftPanel();
-            YangmanDesignService.setJsonSplitter($scope.forceCMsRefresh);
+            YangmanDesignService.setJsonSplitter(YangmanDesignService.forceCMsRefresh);
 
             EventDispatcherService.registerHandler(constants.EV_FILL_PATH, fillPathIdentifiersByKey);
             EventDispatcherService.registerHandler(constants.EV_LIST_CHANGED, fillPathIdentifiersByListData);
@@ -375,19 +374,8 @@ define([
         function setJsonView(received, sent){
             main.jsonView.received = received;
             main.jsonView.sent = sent;
-            $scope.forceCMsRefresh();
-            YangmanDesignService.setJsonSplitter($scope.forceCMsRefresh);
-        }
-
-        /**
-         * Force refresh of all codemirror instances
-         */
-        function forceCMsRefresh(){
-            var elems = angular.element(document).find('.CodeMirror');
-            for (var i = 0; i < elems.length; i++){
-                var cmInstance = elems[i].CodeMirror;
-                cmInstance._handlers.changes[0](cmInstance);
-            }
+            YangmanDesignService.forceCMsRefresh();
+            YangmanDesignService.setJsonSplitter(YangmanDesignService.forceCMsRefresh);
         }
 
         /**

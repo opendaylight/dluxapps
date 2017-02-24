@@ -10,6 +10,7 @@ define([], function () {
         var service = {
             disableMdMenuItem: disableMdMenuItem,
             enableMdMenuItem: enableMdMenuItem,
+            forceCMsRefresh: forceCMsRefresh,
             hideMainMenu: hideMainMenu,
             setDraggableLeftPanel: setDraggableLeftPanel,
             setJsonSplitter: setJsonSplitter,
@@ -119,6 +120,17 @@ define([], function () {
         function setModuleDetailHeight() {
             var height = 'calc(100% - ' + angular.element('.yangmanModule__module-detail h4').outerHeight(true) + 'px)';
             angular.element('.yangmanModule__module-detail .tabs').css({ height: height });
+        }
+
+        /**
+         * Force refresh of all codemirror instances
+         */
+        function forceCMsRefresh(){
+            var elems = angular.element(document).find('.CodeMirror');
+            for (var i = 0; i < elems.length; i++){
+                var cmInstance = elems[i].CodeMirror;
+                cmInstance._handlers.changes[0](cmInstance);
+            }
         }
 
     }
