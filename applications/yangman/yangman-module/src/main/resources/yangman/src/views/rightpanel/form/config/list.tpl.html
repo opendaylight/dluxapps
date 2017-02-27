@@ -30,8 +30,8 @@
 
         <!--<ng-include src="currentPath+'/filter.tpl.html'"></ng-include>-->
 
-        <section layout="row"
-                 layout-align="start center"
+        <section layout="column"
+                 flex
                  class="yangmanModule__right-panel__form__list__paginator"
                  ng-include="yangForm.viewPath + '/list-data-top.tpl.html'"
                  ng-if="!(node.filteredListData && node.filteredListData.length)"></section>

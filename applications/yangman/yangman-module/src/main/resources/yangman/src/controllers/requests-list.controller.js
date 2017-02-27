@@ -2,8 +2,9 @@ define([
     'app/yangman/controllers/save-req-dialog.controller',
     'app/yangman/controllers/edit-collection-dialog.controller',
     'app/yangman/controllers/history-settings.controller',
+    'app/yangman/controllers/collections-settings.controller',
     'app/yangman/services/handle-file.services',
-], function (SaveReqDialogCtrl, EditCollectionDialogCtrl, HistorySettingsCtrl) {
+], function (SaveReqDialogCtrl, EditCollectionDialogCtrl, HistorySettingsCtrl, CollectionsSettingsCtrl) {
     'use strict';
 
     angular.module('app.yangman').controller('RequestsListCtrl', RequestsListCtrl);
@@ -58,6 +59,7 @@ define([
         vm.showDgEditCollection = showDgEditCollection;
         vm.showDgSaveReq = showDgSaveReq;
         vm.showHistorySettings = showHistorySettings;
+        vm.showCollectionsSettings = showCollectionsSettings;
         vm.showForm = showForm;
         vm.toggleCollectionsSort = toggleCollectionsSort;
         vm.selectOnlyThisRequest = selectOnlyThisRequest;
@@ -193,9 +195,13 @@ define([
          * @param preventFillingWithReceived
          */
         function showForm(reqObj, preventFillingWithReceived) {
-            var data = reqObj.sentData;
+            var data = reqObj.sentData,
+                fillWithReceivedSetting = (
+                    vm.mainList === vm.requestList ? $scope.historySettings : $scope.collectionsSettings
+                ).data.fillWithReceived;
 
-            if ($scope.historySettings.data.fillWithReceived && !preventFillingWithReceived) {
+
+            if (fillWithReceivedSetting && !preventFillingWithReceived) {
                 data = reqObj.receivedData;
             }
 
@@ -453,12 +459,33 @@ define([
         }
 
         /**
+         *
+         * @param ev
+         */
+        function showCollectionsSettings(ev){
+
+            $mdDialog.show({
+                controller: CollectionsSettingsCtrl,
+                controllerAs: 'settingsCtrl',
+                templateUrl: $scope.globalViewPath + 'leftpanel/collections-settings.tpl.html',
+                parent: angular.element('#yangmanModule'),
+                targetEvent: ev,
+                clickOutsideToClose: true,
+                locals: {
+                    settingsObj: $scope.collectionsSettings,
+                },
+            }).then(function (changedSettings){
+                $scope.collectionsSettings.setData(changedSettings.data);
+            });
+        }
+
+        /**
          * Add each request from requests array to collectionList and save
          * @param requests
          */
         function saveRequests(requests){
             requests.forEach(function (reqObj){
-                vm.collectionList.addItemToList(RequestsService.clearUnnecessaryProperties(reqObj.clone()));
+                vm.collectionList.addItemToList(RequestsService.clearUnnecessaryProperties(reqObj.clone(), $scope.collectionsSettings));
                 vm.collectionList.saveToStorage();
                 refreshCollectionsWithExpansion();
             });
@@ -532,6 +559,7 @@ define([
 
             vm.requestList = RequestsService.createEmptyHistoryList('yangman_requestsList', $scope.historySettings);
 
+            // listen for history settings change to affect count of history requests in list
             $scope.$on(constants.YANGMAN_RESET_HISTORY_SETTINGS, function () {
                 vm.requestList.setSettings($scope.historySettings);
             });

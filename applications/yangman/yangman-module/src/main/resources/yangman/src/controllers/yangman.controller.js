@@ -12,7 +12,7 @@ define([
     'app/yangman/services/requests.services',
     'app/yangman/services/parameters.services',
     'app/yangman/services/plugins-unsetter.services',
-    'app/yangman/services/history-settings.services',
+    'app/yangman/services/requests-settings.services',
     'app/yangman/directives/ui-codemirror.directive',
     'app/yangman/directives/read_file.directive',
     'app/yangman/directives/height-watcher.directive',
@@ -22,13 +22,13 @@ define([
     angular.module('app.yangman').controller('YangmanCtrl', YangmanCtrl);
 
     YangmanCtrl.$inject = [
-        '$scope', '$rootScope', 'HistorySettingsService', 'YangmanDesignService', 'RequestBuilderService',
+        '$scope', '$rootScope', 'RequestsSettingsService', 'YangmanDesignService', 'RequestBuilderService',
         'EventDispatcherService', 'constants', 'ParametersService', 'PathUtilsService', 'PluginsUnsetterService',
         '$timeout',
     ];
 
     function YangmanCtrl(
-        $scope, $rootScope, HistorySettingsService, YangmanDesignService, RequestBuilderService, EventDispatcherService,
+        $scope, $rootScope, RequestsSettingsService, YangmanDesignService, RequestBuilderService, EventDispatcherService,
         constants, ParametersService, PathUtilsService, PluginsUnsetterService, $timeout
     ) {
         var main = this;
@@ -50,7 +50,8 @@ define([
         $scope.requestDataToShow = '';
         $scope.parametersList = ParametersService.createEmptyParametersList('yangman_parameters');
         $scope.shownCMHint = false;
-        $scope.historySettings = HistorySettingsService.createHistorySettings().loadFromStorage();
+        $scope.historySettings = RequestsSettingsService.createHistorySettings().loadFromStorage();
+        $scope.collectionsSettings = RequestsSettingsService.createCollectionsSettings().loadFromStorage();
 
         main.selectedMainTab = 0;
         main.leftPanelTab = 0;
@@ -345,7 +346,9 @@ define([
          * @param cbk
          */
         function rootBroadcast(broadcast, params, cbk){
-            $scope.$broadcast(broadcast, { params: params, cbk: cbk });
+            if (broadcast) {
+                $scope.$broadcast(broadcast, { params: params, cbk: cbk });
+            }
         }
 
         /**
