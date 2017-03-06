@@ -163,6 +163,12 @@ define([
                 if ( $scope.node ) {
 
                     YangmanService.fillNodeFromResponse($scope.node, reqData);
+
+                    if(requestHeader.selectedOperation !== constants.OPERATION_GET) {
+                        $scope.buildRootRequest();
+                        requestHeader.setRequestUrl();
+                    }
+
                     $scope.node.expanded = true;
                 }
             }
@@ -198,7 +204,7 @@ define([
                     default: function (){
                         var dataType;
                         if (requestHeader.executedOperation) {
-                            dataType = requestHeader.executedOperation === constants.OPERATION_GET ?
+                            dataType = requestHeader.executedOperation === constants.OPERATION_GET && requestHeader.selectedOperation === constants.OPERATION_GET ?
                                 constants.REQUEST_DATA_TYPE_RECEIVED :
                                 'SENT';
                         }
