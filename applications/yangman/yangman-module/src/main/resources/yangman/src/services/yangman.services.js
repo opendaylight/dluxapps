@@ -259,6 +259,8 @@ define([], function () {
             setSrcDataByDataType(allPreparedData, node, requestData, dataType);
             setParametrizedData(allPreparedData, params, selSubApiCopy, requestUrl);
 
+            PathUtilsService.fillPath(selectedSubApi.pathArray, requestUrl);
+
             // prepare req data
             if (operation === constants.OPERATION_GET){
                 allPreparedData.srcData = null;
