@@ -7,12 +7,12 @@
         <property name="loader" ref="loader"/>
         <property name="moduleName" value="${rootArtifactId}"/>
         <property name="url" value="/src/app/${rootArtifactId}"/>
-        <property name="directory" value="/${rootArtifactId}"/>
+        <property name="directory" value="/${rootArtifactId}/build"/>
         <property name="requireJs" value="app/${rootArtifactId}/${rootArtifactId}.module"/>
         <property name="angularJs" value="app.${rootArtifactId}"/>
         <property name="cssDependencies">
             <list>
-                <value>src/app/${rootArtifactId}/${rootArtifactId}-custom.css</value>
+                <value>src/app/${rootArtifactId}/assets/css/${rootArtifactId}.css</value>
             </list>
         </property>
     </bean>
