@@ -57,6 +57,7 @@
          ng-show="main.jsonView.received"
          ng-init="requestData.init(main.constants.REQUEST_DATA_TYPE_RECEIVED)"
          ng-class="{'half-size': main.jsonView.received && main.jsonView.sent}"
+         height-watcher watch-attribute="height"
          id="ReceiveData"
          class="yangmanModule__right-panel__req-data__cm-RECEIVED ym-resizable-s">
 
