@@ -494,6 +494,15 @@ define([
                     $scope.rootBroadcast(constants.YANGMAN_SELECT_THE_NEWEST_REQUEST);
                 });
 
+                if(!requestHeader.fillFormWithReceivedData && requestHeader.selectedOperation === constants.OPERATION_GET) {
+                    var reqData = {};
+                    reqData = getDataForForm();
+
+                    if ( $scope.node ) {
+                        YangmanService.fillNodeFromResponse($scope.node, reqData);
+                    }
+                }
+
                 (executeCbk || angular.noop)(historyReq);
 
             }
