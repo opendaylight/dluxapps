@@ -440,17 +440,14 @@ define([
              */
             function executeReqSuccCbk(reqInfo, response) {
 
-                var preparedReceivedData = {};
-
-                if (requestHeader.fillFormWithReceivedData || requestHeader.selectedShownDataType === constants.DISPLAY_TYPE_REQ_DATA ) {
-                    preparedReceivedData = YangmanService.prepareReceivedData(
-                        $scope.node,
-                        requestHeader.selectedOperation,
-                        response.data ? response.data.plain() : {},
-                        reqInfo.requestSrcData,
-                        requestHeader.selectedShownDataType
-                    );
-                }
+                var preparedReceivedData = YangmanService.prepareReceivedData(
+                    $scope.node,
+                    requestHeader.selectedOperation,
+                    response.data ? response.data.plain() : {},
+                    reqInfo.requestSrcData,
+                    requestHeader.selectedShownDataType,
+                    !(requestHeader.selectedShownDataType === constants.DISPLAY_TYPE_REQ_DATA || requestHeader.fillFormWithReceivedData)
+                );
 
                 finishRequestProgress();
 
