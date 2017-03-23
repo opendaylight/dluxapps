@@ -493,6 +493,7 @@ define([
 
                 if(!requestHeader.fillFormWithReceivedData && requestHeader.selectedOperation === constants.OPERATION_GET) {
                     var reqData = {};
+                    requestHeader.executedOperation = false;
                     reqData = getDataForForm();
 
                     if ( $scope.node ) {
