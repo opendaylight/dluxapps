@@ -141,6 +141,7 @@ define([
          */
         function changeDataType(){
             $scope.switchSection('rightPanelSection', requestHeader.selectedShownDataType);
+            requestHeader.executedOperation = false;
 
             if ($scope.node || requestHeader.urlChanged) {
                 requestHeader.setRequestUrl();
@@ -494,6 +495,7 @@ define([
                 if(!requestHeader.fillFormWithReceivedData && requestHeader.selectedOperation === constants.OPERATION_GET) {
                     var reqData = {};
                     requestHeader.executedOperation = false;
+                    sendRequestData($scope.buildRootRequest(), 'SENT');
                     reqData = getDataForForm();
 
                     if ( $scope.node ) {
