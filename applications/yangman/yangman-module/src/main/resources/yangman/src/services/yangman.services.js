@@ -95,7 +95,7 @@ define([], function () {
          * @param outputType
          * @returns {*}
          */
-        function prepareReceivedData(node, method, rData, sData, outputType){
+        function prepareReceivedData(node, method, rData, sData, outputType, doNotClearNode){
             var prepareType = {
                 rpc: function (){
 
@@ -117,19 +117,19 @@ define([], function () {
                 default: function (){
                     var methodType = {
                         GET: function () {
-                            if ( node ){
+                            if ( node && !doNotClearNode ){
                                 node.clear();
                             }
                             return rData;
                         },
                         DELETE: function () {
-                            if ( node ) {
+                            if ( node && !doNotClearNode ) {
                                 node.clear();
                             }
                             return {};
                         },
                         DEFAULT: function () {
-                            if (node) {
+                            if (node && !doNotClearNode) {
                                 node.clear();
                             }
                             return rData;

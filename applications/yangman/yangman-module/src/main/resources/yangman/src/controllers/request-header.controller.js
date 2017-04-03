@@ -141,6 +141,7 @@ define([
          */
         function changeDataType(){
             $scope.switchSection('rightPanelSection', requestHeader.selectedShownDataType);
+            requestHeader.executedOperation = false;
 
             if ($scope.node || requestHeader.urlChanged) {
                 requestHeader.setRequestUrl();
@@ -440,17 +441,14 @@ define([
              */
             function executeReqSuccCbk(reqInfo, response) {
 
-                var preparedReceivedData = {};
-
-                if (requestHeader.fillFormWithReceivedData || requestHeader.selectedShownDataType === constants.DISPLAY_TYPE_REQ_DATA ) {
-                    preparedReceivedData = YangmanService.prepareReceivedData(
-                        $scope.node,
-                        requestHeader.selectedOperation,
-                        response.data ? response.data.plain() : {},
-                        reqInfo.requestSrcData,
-                        requestHeader.selectedShownDataType
-                    );
-                }
+                var preparedReceivedData = YangmanService.prepareReceivedData(
+                    $scope.node,
+                    requestHeader.selectedOperation,
+                    response.data ? response.data.plain() : {},
+                    reqInfo.requestSrcData,
+                    requestHeader.selectedShownDataType,
+                    !(requestHeader.selectedShownDataType === constants.DISPLAY_TYPE_REQ_DATA || requestHeader.fillFormWithReceivedData)
+                );
 
                 finishRequestProgress();
 
@@ -496,6 +494,8 @@ define([
 
                 if(!requestHeader.fillFormWithReceivedData && requestHeader.selectedOperation === constants.OPERATION_GET) {
                     var reqData = {};
+                    requestHeader.executedOperation = false;
+                    sendRequestData($scope.buildRootRequest(), 'SENT');
                     reqData = getDataForForm();
 
                     if ( $scope.node ) {
