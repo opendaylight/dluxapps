@@ -1,81 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<!--
+ Copyright © 2017 Red Hat, Inc. and others.
+
+ This program and the accompanying materials are made available under the
+ terms of the Eclipse Public License v1.0 which accompanies this distribution,
+ and is available at http://www.eclipse.org/legal/epl-v10.html
+ -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
     <parent>
         <groupId>org.opendaylight.odlparent</groupId>
-        <artifactId>features-parent</artifactId>
-        <version>1.9.0</version>
+        <artifactId>feature-repo-parent</artifactId>
+        <version>2.0.0</version>
         <relativePath/>
     </parent>
+
     <groupId>org.opendaylight.dluxapps</groupId>
-    <artifactId>features-dluxapps</artifactId>
+    <artifactId>features4-dluxapps</artifactId>
     <version>0.6.0-SNAPSHOT</version>
+    <packaging>feature</packaging>
     <!-- <name> formatting is used by autorelease to parse and notify projects on
          build failure. Please do not modify this unless you have a good reason. -->
     <name>ODL :: dluxapps :: ${project.artifactId}</name>
-    <packaging>jar</packaging>
-
-    <properties>
-        <features.file>features.xml</features.file>
-        <dlux.version>0.6.0-SNAPSHOT</dlux.version>
-        <restconf.version>1.6.0-SNAPSHOT</restconf.version>
-    </properties>
 
     <dependencies>
         <dependency>
-            <groupId>org.opendaylight.odlparent</groupId>
-            <artifactId>features-test</artifactId>
-            <version>1.9.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.opendaylight.dlux</groupId>
-            <artifactId>features-dlux</artifactId>
-            <version>${dlux.version}</version>
-            <classifier>features</classifier>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>odl-dluxapps-applications</artifactId>
+            <version>${project.version}</version>
             <type>xml</type>
-        </dependency>
-        <dependency>
-            <groupId>org.opendaylight.dluxapps</groupId>
-            <artifactId>nodes-bundle</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.opendaylight.dluxapps</groupId>
-            <artifactId>sigmatopology-bundle</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.opendaylight.dluxapps</groupId>
-            <artifactId>topology-bundle</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.opendaylight.dluxapps</groupId>
-            <artifactId>yangman-bundle</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.opendaylight.dluxapps</groupId>
-            <artifactId>yangvisualizer-bundle</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.opendaylight.dluxapps</groupId>
-            <artifactId>yangui-bundle</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.opendaylight.dluxapps</groupId>
-            <artifactId>yangutils-bundle</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.opendaylight.netconf</groupId>
-            <artifactId>features-restconf</artifactId>
-            <version>${restconf.version}</version>
             <classifier>features</classifier>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>odl-dluxapps-nodes</artifactId>
+            <version>${project.version}</version>
             <type>xml</type>
+            <classifier>features</classifier>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>odl-dluxapps-topology</artifactId>
+            <version>${project.version}</version>
+            <type>xml</type>
+            <classifier>features</classifier>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>odl-dluxapps-yangman</artifactId>
+            <version>${project.version}</version>
+            <type>xml</type>
+            <classifier>features</classifier>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>odl-dluxapps-yangui</artifactId>
+            <version>${project.version}</version>
+            <type>xml</type>
+            <classifier>features</classifier>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>odl-dluxapps-yangutils</artifactId>
+            <version>${project.version}</version>
+            <type>xml</type>
+            <classifier>features</classifier>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>odl-dluxapps-yangvisualizer</artifactId>
+            <version>${project.version}</version>
+            <type>xml</type>
+            <classifier>features</classifier>
         </dependency>
     </dependencies>
+
 </project>
