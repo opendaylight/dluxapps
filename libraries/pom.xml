@@ -11,13 +11,13 @@
     <parent>
         <groupId>org.opendaylight.dluxapps</groupId>
         <artifactId>dluxapps-aggregator</artifactId>
-        <version>0.5.3-SNAPSHOT</version>
+        <version>0.5.4-SNAPSHOT</version>
         <relativePath>../</relativePath>
     </parent>
 
     <groupId>org.opendaylight.dluxapps</groupId>
     <artifactId>dluxapps-libraries</artifactId>
-    <version>0.5.3-SNAPSHOT</version>
+    <version>0.5.4-SNAPSHOT</version>
     <description>Libraries</description>
     <packaging>pom</packaging>
     <!-- <name> formatting is used by autorelease to parse and notify projects on
