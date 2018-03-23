@@ -37,12 +37,14 @@
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>yangvisualizer-bundle</artifactId>
+            <artifactId>odl-dluxapps-yangutils</artifactId>
             <version>${project.version}</version>
+            <type>xml</type>
+            <classifier>features</classifier>
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>yangutils-bundle</artifactId>
+            <artifactId>yangvisualizer-bundle</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
@@ -51,5 +53,4 @@
             <version>${project.version}</version>
         </dependency>
     </dependencies>
-
 </project>

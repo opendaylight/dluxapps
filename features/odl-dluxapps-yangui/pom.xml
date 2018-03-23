@@ -37,12 +37,15 @@
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>yangui-bundle</artifactId>
+            <artifactId>odl-dluxapps-yangutils</artifactId>
             <version>${project.version}</version>
+            <type>xml</type>
+            <classifier>features</classifier>
         </dependency>
+
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>yangutils-bundle</artifactId>
+            <artifactId>yangui-bundle</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
@@ -51,5 +54,4 @@
             <version>${project.version}</version>
         </dependency>
     </dependencies>
-
 </project>
