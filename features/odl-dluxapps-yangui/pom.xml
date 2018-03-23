@@ -37,6 +37,13 @@
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
+            <artifactId>odl-dluxapps-sigmatopology</artifactId>
+            <version>${project.version}</version>
+            <type>xml</type>
+            <classifier>features</classifier>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
             <artifactId>odl-dluxapps-yangutils</artifactId>
             <version>${project.version}</version>
             <type>xml</type>
@@ -46,11 +53,6 @@
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>yangui-bundle</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>sigmatopology-bundle</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>
