@@ -11,7 +11,7 @@
   <parent>
     <groupId>org.opendaylight.dluxapps</groupId>
     <artifactId>sigmatopology</artifactId>
-    <version>0.7.1-SNAPSHOT</version>
+    <version>0.7.2-SNAPSHOT</version>
   </parent>
 
   <groupId>org.opendaylight.dluxapps</groupId>
@@ -19,7 +19,7 @@
   <!-- <name> formatting is used by autorelease to parse and notify projects on
        build failure. Please do not modify this unless you have a good reason. -->
   <name>ODL :: dluxapps :: ${project.artifactId}</name>
-  <version>0.7.1-SNAPSHOT</version>
+  <version>0.7.2-SNAPSHOT</version>
   <description>Sigmatopology Module Resources</description>
   <packaging>jar</packaging>
 
