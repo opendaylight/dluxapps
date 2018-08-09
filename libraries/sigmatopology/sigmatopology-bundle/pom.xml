@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.opendaylight.dluxapps</groupId>
         <artifactId>sigmatopology</artifactId>
-        <version>0.7.3-SNAPSHOT</version>
+        <version>0.7.4-SNAPSHOT</version>
     </parent>
 
     <groupId>org.opendaylight.dluxapps</groupId>

@@ -15,7 +15,7 @@
 
     <groupId>org.opendaylight.dluxapps</groupId>
     <artifactId>dluxapps-aggregator</artifactId>
-    <version>0.7.3-SNAPSHOT</version>
+    <version>0.7.4-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>dluxapps</name> <!-- Used by Sonar to set project name -->
 
