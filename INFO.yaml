@@ -1,0 +1,48 @@
+---
+project: 'dluxapps'
+project_creation_date: '2016-10-27'
+project_category: ''
+lifecycle_state: 'Incubation'
+project_lead: &odl_dluxapps_ptl
+    name: 'Daniel Malachovsky'
+    email: 'daniel.malachovsky@pantheon.tech'
+    company: 'pantheon'
+    id: 'malachovsky'
+    timezone: 'Unknown/Unknown'
+primary_contact: *odl_dluxapps_ptl
+issue_tracking:
+    type: 'jira'
+    url: 'https://jira.opendaylight.org/projects/'
+    key: 'dluxapps'
+mailing_list:
+    type: 'groups.io'
+    url: 'app-dev@lists.opendaylight.org'
+    tag: '[]'
+realtime_discussion:
+    type: 'irc'
+    server: 'freenode.net'
+    channel: '#opendaylight'
+meetings:
+    - type: 'gotomeeting+irc'
+      agenda: 'https://wiki.opendaylight.org'
+      url: ''
+      server: 'freenode.net'
+      channel: '#opendaylight'
+      repeats: ''
+      time: ''
+repositories:
+    - dluxapps
+committers:
+    - <<: *odl_dluxapps_ptl
+    - name: 'Stanislav Jamrich'
+      email: 'sjamrich@cisco.com'
+      company: 'cisco'
+      id: 'sjamrich'
+      timezone: 'Unknown/Unknown'
+tsc:
+    # yamllint disable rule:line-length
+    approval: 'https://meetings.opendaylight.org/opendaylight-meeting/2016/tsc/opendaylight-meeting-tsc.2016-10-27-17.00.html'
+    changes:
+        - type: ''
+          name: ''
+          link: ''
